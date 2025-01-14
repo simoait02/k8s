@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pitstop-webapp-depl
+  labels:
+    app: pitstop-webapp-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pitstop-webapp-depl
+  template:
+    metadata:
+      name: pitstop-webapp-depl
+      labels:
+        app: pitstop-webapp-depl
+    spec:
+      containers:
+        - name: pitstop-webapp-depl
+          image: simo3011w/pitstop-webapp
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pitstop-webapp-service
+spec:
+  ports:
+    - port: 8080
+  type: ClusterIP
+  selector:
+    app: pitstop-webapp-depl

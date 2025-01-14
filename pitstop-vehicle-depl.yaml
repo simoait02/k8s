@@ -32,7 +32,8 @@ spec:
     spec:
       containers:
         - name: pitstop-vehicle
-          image: msalekmouad/pitstop-vehicle:dev
+          image: simo3011w/pitstop-vehicle
+          imagePullPolicy: Always
           ports:
             - containerPort: 3002
           envFrom:
