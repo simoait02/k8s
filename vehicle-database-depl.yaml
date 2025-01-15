@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: pitstop-vehicle-database-configmap
 data:
-  MYSQL_DATABASE: pitstop
-  MYSQL_ROOT_PASSWORD: pitstop-user
-  MYSQL_USER: pitstop-user
-  MYSQL_PASSWORD: pitstop-user
+  MYSQL_DATABASE: "pitstop"
+  MYSQL_ROOT_PASSWORD: "pitstop-user"
+  MYSQL_USER: "pitstop-user"
+  MYSQL_PASSWORD: "pitstop-user"
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -42,7 +42,7 @@ metadata:
 spec:
   ports:
    - name: mysql
-     port: 3308
+     port: 3306
      targetPort: 3306
   selector:
     app: pitstop-vehicle-database
