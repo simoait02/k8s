@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: pitstop-workshop
-          image: simo3011w/pitstop-workshop-planning:main
+          image: simo3011w/pitstop-workshop-planning:main:main
           imagePullPolicy: Always
           ports:
             - containerPort: 3003
